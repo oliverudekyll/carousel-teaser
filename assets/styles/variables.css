@@ -1,0 +1,12 @@
+:root {
+  --color-body: #000000;
+  --color-background: #e7ecd8;
+
+  --padding: 0.9375rem;
+  --padding-xs: calc(var(--padding) / 4);
+  --padding-sm: calc(var(--padding) / 2);
+  --padding-lg: calc(var(--padding) * 2);
+  --padding-xl: calc(var(--padding) * 4);
+
+  --font-family-body: alpinaTypewriter, "Courier New", "Courier", monospace;
+}

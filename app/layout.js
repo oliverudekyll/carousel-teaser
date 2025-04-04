@@ -1,14 +1,24 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import localFont from "next/font/local";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import "@styles/_reset.css";
+import "@styles/globals.css";
+import "@styles/variables.css";
+import "@styles/typography.css";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const alpinaTypeWriter = localFont({
+  src: [
+    {
+      path: "../assets/fonts/GT-Alpina-Typewriter-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/GT-Alpina-Typewriter-Thin.woff2",
+      weight: "100",
+      style: "normal",
+    },
+  ],
+  variable: "--font-alpina-typewriter",
 });
 
 export const metadata = {
@@ -19,9 +29,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
-      </body>
+      <body className={`${alpinaTypeWriter.variable}`}>{children}</body>
     </html>
   );
 }
