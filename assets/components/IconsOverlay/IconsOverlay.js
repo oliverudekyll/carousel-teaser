@@ -17,9 +17,6 @@ function IconsOverlay() {
     },
   });
 
-  console.log("docX", docX);
-  console.log("docY", docY);
-
   const innerWidth = window.innerWidth;
   const x = docX / innerWidth;
   const y = docY / innerWidth;
@@ -56,7 +53,7 @@ function IconsOverlay() {
       </span>
       <span className={styles["rainbow-container"]} aria-hidden="true">
         <span className={styles["rainbow-icon-wrapper"]}>
-          <RainbowWipeCanvas x={x} />
+          <RainbowWipeCanvas direction="right" />
           <img
             className={styles["rainbow-icon"]}
             src="icons/carousel-rainbow.svg"

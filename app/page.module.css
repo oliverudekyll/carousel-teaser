@@ -27,6 +27,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  mix-blend-mode: multiply;
+
+  z-index: 200;
 }
 
 .title {
