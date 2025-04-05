@@ -64,7 +64,7 @@ function cubicBezier(t, p1x, p1y, p2x, p2y) {
 
 const RainbowWipeCanvas = memo(function RainbowWipeCanvas({
   direction,
-  strokeWhite = false,
+  fillWhite = false,
 }) {
   const canvasRef = useRef(null);
   const ref = useRef(null);
@@ -172,30 +172,25 @@ const RainbowWipeCanvas = memo(function RainbowWipeCanvas({
 
     // Set up the drawing
     const lineWidth = dimensions.width / 2;
-    ctx.strokeStyle = strokeWhite ? "#ffffff" : "#e7ecd8";
+    ctx.fillStyle = fillWhite ? "#ffffff" : "#e7ecd8";
     ctx.lineWidth = lineWidth * 1.5;
 
     // Draw the arc
     ctx.beginPath();
-    if (direction === "right") {
-      ctx.arc(
-        dimensions.width / 2,
-        dimensions.height,
-        lineWidth / 2,
-        (x + 1) * Math.PI,
-        2 * Math.PI
-      );
-    } else {
-      ctx.arc(
-        dimensions.width / 2,
-        dimensions.height,
-        lineWidth / 2,
-        1 * Math.PI,
-        (x + 1) * Math.PI
-      );
-    }
-    ctx.stroke();
-  }, [direction, strokeWhite]);
+
+    ctx.moveTo(dimensions.width / 2, dimensions.height);
+    ctx.arc(
+      dimensions.width / 2,
+      dimensions.height,
+      dimensions.width / 1.5,
+      (x + 1) * Math.PI,
+      2 * Math.PI
+    );
+
+    ctx.fill();
+    ctx.rotate((1 * Math.PI) / 180); // Rotate 1 degree
+    ctx.rotate((-1 * Math.PI) / 180); // Rotate -1 degree
+  }, [direction, fillWhite]);
 
   // Animation logic
   const startAnimation = useCallback(() => {
@@ -259,10 +254,10 @@ const RainbowWipeCanvas = memo(function RainbowWipeCanvas({
     state.animationFrame = requestAnimationFrame(animationLoop);
   }, [drawCanvas]);
 
-  // Respond to direction or strokeWhite prop changes
+  // Respond to direction or fillWhite prop changes
   useEffect(() => {
     drawCanvas();
-  }, [direction, strokeWhite, drawCanvas]);
+  }, [direction, fillWhite, drawCanvas]);
 
   return (
     <div

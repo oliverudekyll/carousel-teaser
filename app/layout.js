@@ -40,6 +40,11 @@ export default function RootLayout({ children }) {
           href={`/favicons/favicon-${initialFavIconIndex}.ico`}
           sizes="any"
         />
+        <link
+          rel="apple-touch-icon"
+          href="/favicons/apple-touch-icon.png"
+          sizes="any"
+        />
       </head>
       <body className={`${alpinaTypeWriter.variable}`}>
         <DynamicFavicon />
