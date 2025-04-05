@@ -10,3 +10,15 @@
 
   --font-family-body: alpinaTypewriter, "Courier New", "Courier", monospace;
 }
+
+@media screen and (width < 1200px) {
+  :root {
+    --padding-xl: 2.5rem;
+  }
+}
+
+@media screen and (width < 768px) {
+  :root {
+    --padding-xl: 1.25rem;
+  }
+}

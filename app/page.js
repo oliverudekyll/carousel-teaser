@@ -15,6 +15,7 @@ export default function Home() {
           <h1 className={styles["title"]}>the carousel is arriving soon.</h1>
         </div>
       </main>
+      <RainbowWipeCanvas direction="left" strokeWhite={false} />
       <IconsOverlay />
     </div>
   );

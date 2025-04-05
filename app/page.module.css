@@ -27,16 +27,39 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   mix-blend-mode: difference;
 
   z-index: 200;
 }
 
+.title-container {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .title {
+  position: relative;
+
   font-family: var(--font-family-body);
   font-size: 3.5625rem;
   text-align: center;
   font-weight: 100;
   color: #ffffff;
+
+  text-wrap: balance;
+}
+
+@media screen and (width < 1200px) {
+  .title {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (width < 768px) {
+  .title {
+    font-size: 1.1rem;
+  }
 }
