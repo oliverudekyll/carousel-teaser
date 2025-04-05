@@ -7,8 +7,8 @@ import styles from "./loading-overlay.module.css";
 
 // Animation settings
 const ANIMATION_EASE = [0.86, 0, 0.07, 1];
-const ANIMATION_DURATION = 1.35;
-const BLOCK_ANIMATION_DURATION = 0.7;
+const ANIMATION_DURATION = 1.75;
+const BLOCK_ANIMATION_DURATION = 1.4;
 
 // Predefine animation variants to avoid object creation on render
 const wrapperVariants = {
