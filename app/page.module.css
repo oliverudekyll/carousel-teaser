@@ -49,7 +49,8 @@
   font-weight: 100;
   color: #ffffff;
 
-  text-wrap: balance;
+  white-space: nowrap;
+  transition: font-size var(--transition);
 }
 
 @media screen and (width < 1200px) {
@@ -58,7 +59,13 @@
   }
 }
 
-@media screen and (width < 768px) {
+@media screen and (width < 900px) {
+  .title {
+    font-size: 1.75rem;
+  }
+}
+
+@media screen and (width < 600px) {
   .title {
     font-size: 1.1rem;
   }

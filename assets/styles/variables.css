@@ -9,6 +9,8 @@
   --padding-xl: calc(var(--padding) * 4);
 
   --font-family-body: alpinaTypewriter, "Courier New", "Courier", monospace;
+
+  --transition: 0.3s ease-in-out;
 }
 
 @media screen and (width < 1200px) {
@@ -17,7 +19,7 @@
   }
 }
 
-@media screen and (width < 768px) {
+@media screen and (width < 900px) {
   :root {
     --padding-xl: 1.25rem;
   }

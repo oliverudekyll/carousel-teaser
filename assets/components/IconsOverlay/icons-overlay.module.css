@@ -21,6 +21,8 @@
   flex-wrap: wrap;
 
   z-index: 100;
+  transition: width var(--transition), height var(--transition),
+    padding var(--transition);
 }
 
 .icon-container {
@@ -81,14 +83,43 @@
   object-fit: contain;
 }
 
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media screen and (width < 1200px) {
   .icon-container img {
     width: 4rem;
   }
 }
 
-@media screen and (width < 768px) {
+@media screen and (width < 900px) {
+  .rainbow-icon-wrapper canvas {
+    display: none;
+  }
+
   .icon-container img {
     width: 3rem;
+  }
+
+  .icon-container:nth-child(1) img {
+    animation: spin 4s ease-in-out infinite;
+  }
+
+  .icon-container:nth-child(2) img {
+    animation: spin 1.5s ease-in-out reverse infinite;
+  }
+
+  .icon-container:nth-child(3) img {
+    animation: spin 2.67s ease-in-out reverse infinite;
+  }
+
+  .icon-container:nth-child(4) img {
+    animation: spin 2s ease-in-out infinite;
   }
 }
