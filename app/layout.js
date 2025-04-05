@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import DynamicFavicon from "../assets/components/DynamicFavicon/DynamicFavicon";
 
 import "@styles/_reset.css";
 import "@styles/globals.css";
@@ -27,10 +28,23 @@ export const metadata = {
     "Õllegalerii is now called Carousel Selections - the boutique import agency for independent beer, wine and experiences 🎠 ",
 };
 
+// Initial favicon is set to 1, but will be changed by the client component
+const initialFavIconIndex = 1;
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${alpinaTypeWriter.variable}`}>{children}</body>
+      <head>
+        <link
+          rel="icon"
+          href={`/favicons/favicon-${initialFavIconIndex}.ico`}
+          sizes="any"
+        />
+      </head>
+      <body className={`${alpinaTypeWriter.variable}`}>
+        <DynamicFavicon />
+        {children}
+      </body>
     </html>
   );
 }
