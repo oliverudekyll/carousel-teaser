@@ -1,28 +1,44 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useMouse } from "react-use";
-import { useSpringValue } from "@react-spring/web";
 
 import styles from "../IconsOverlay/icons-overlay.module.css";
 
 function RainbowWipeCanvas({ direction, strokeWhite = false }) {
   const canvasRef = useRef(null);
   const { docX, docY } = useMouse(canvasRef);
-  const rawX = docX / window.innerWidth;
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [rawX, setRawX] = useState(0);
 
-  const x = useSpringValue(rawX, {
-    config: { tension: 200, friction: 20 },
-  });
-  x.start(rawX);
-  let springX = x.get();
   useEffect(() => {
-    x.start(rawX);
-    springX = x.get();
-  }, [rawX]);
+    // Set initial dimensions
+    setDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+
+    // Handle window resize
+    const handleResize = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (dimensions.width === 0) return;
+    setRawX(docX / dimensions.width);
+  }, [docX, dimensions.width]);
 
   function draw() {
     const canvas = canvasRef.current;
+    if (!canvas) return;
+
     const ctx = canvas.getContext("2d");
 
     // Clear the canvas first
@@ -40,7 +56,7 @@ function RainbowWipeCanvas({ direction, strokeWhite = false }) {
         canvas.width / 2,
         canvas.height,
         lineWidth / 2,
-        (springX + 1) * Math.PI,
+        (rawX + 1) * Math.PI,
         2 * Math.PI
       );
     } else {
@@ -49,28 +65,22 @@ function RainbowWipeCanvas({ direction, strokeWhite = false }) {
         canvas.height,
         lineWidth / 2,
         1 * Math.PI,
-        (springX + 1) * Math.PI
+        (rawX + 1) * Math.PI
       );
     }
     ctx.stroke();
   }
 
   useEffect(() => {
-    window.addEventListener("resize", draw);
-    return () => {
-      window.removeEventListener("resize", draw);
-    };
-  }, []);
-
-  useEffect(() => {
+    if (dimensions.width === 0) return;
     draw();
-  }, [rawX, springX]);
+  }, [rawX, dimensions]);
 
   return (
     <canvas
       className={styles["rainbow-wipe-canvas"]}
-      width={window.innerWidth}
-      height={window.innerHeight}
+      width={dimensions.width}
+      height={dimensions.height}
       ref={canvasRef}
     />
   );

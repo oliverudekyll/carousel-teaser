@@ -1,0 +1,51 @@
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: space-between;
+
+  pointer-events: none;
+  z-index: 999;
+}
+
+.loading-overlay__block {
+  position: relative;
+  height: 100%;
+}
+
+.blocks-wrapper {
+  display: flex;
+  height: 100%;
+}
+
+.blocks-wrapper:nth-child(1) {
+  width: 38.7%;
+  justify-content: flex-start;
+}
+
+.blocks-wrapper:nth-child(2) {
+  width: 61.3%;
+  justify-content: flex-end;
+}
+
+.block--pink {
+  width: 32.3%;
+  background-color: #ee04a7;
+}
+
+.block--brown {
+  background-color: #815b12;
+}
+
+.block--gray {
+  width: 24%;
+  background-color: #b6b8b7;
+}
+
+.block--teal {
+  background-color: #00879e;
+}

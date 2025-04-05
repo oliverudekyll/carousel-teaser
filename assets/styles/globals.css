@@ -5,3 +5,7 @@ nextjs-portal {
 body {
   background-color: var(--color-background);
 }
+
+body * {
+  box-sizing: border-box;
+}
