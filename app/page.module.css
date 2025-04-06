@@ -29,6 +29,9 @@
   align-items: center;
   mix-blend-mode: difference;
 
+  transform: translateZ(0);
+  backface-visibility: hidden;
+
   z-index: 200;
 }
 
