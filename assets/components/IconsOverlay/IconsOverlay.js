@@ -67,7 +67,7 @@ function IconsOverlay() {
         <span className={styles["icon-container"]}>
           <animated.img
             style={{ transform: rotation.to((r) => `rotate(${r * 2}deg)`) }}
-            src="icons/carousel-icon-1.svg"
+            src="icons/carousel-icon-5.svg"
           />
         </span>
       </span>
