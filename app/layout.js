@@ -25,6 +25,14 @@ export const metadata = {
   title: "Carousel Selections",
   description:
     "Õllegalerii is now called Carousel Selections - the boutique import agency for independent beer, wine and experiences 🎠 ",
+  images: [
+    {
+      url: "/social-preview.jpg",
+      width: 1200,
+      height: 630,
+      alt: "Carousel Selections",
+    },
+  ],
 };
 
 // Initial favicon is set to 1, but will be changed by the client component
