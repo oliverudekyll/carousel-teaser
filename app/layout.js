@@ -1,5 +1,4 @@
 import localFont from "next/font/local";
-import DynamicFavicon from "../assets/components/DynamicFavicon/DynamicFavicon";
 
 import "@styles/_reset.css";
 import "@styles/globals.css";
