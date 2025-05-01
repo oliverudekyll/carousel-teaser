@@ -14,6 +14,13 @@ export default function Home() {
         <div className={styles["title-container"]}>
           <h1 className={styles["title"]}>the carousel is arriving soon.</h1>
         </div>
+        <a
+          className={styles.link}
+          href="mailto:info@carouselselections.com"
+          aria-label="Email us"
+        >
+          info@carouselselections.com
+        </a>
       </main>
       <IconsOverlay />
     </div>

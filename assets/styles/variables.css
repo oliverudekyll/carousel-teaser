@@ -1,5 +1,6 @@
 :root {
-  --color-body: #000000;
+  --color-body: #1e1e1e;
+  --color-body-invert: #e1e1e1;
   --color-background: #e7ecd8;
 
   --padding: 0.9375rem;
