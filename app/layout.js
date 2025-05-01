@@ -22,6 +22,7 @@ const alpinaTypeWriter = localFont({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://carouselselections.com"),
   title: "Carousel Selections",
   description:
     "Õllegalerii is now called Carousel Selections - the boutique import agency for independent beer, wine and experiences 🎠 ",
